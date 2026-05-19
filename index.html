@@ -48,8 +48,8 @@
   <style>
     /* ══ EXACT ORCA REALTY BRAND COLOURS ══ */
     :root {
-      --green:       #6BBF35;   /* Primary CTA green — bright grass green */
-      --green-hover: #5aaa28;   /* Darker on hover */
+      --green:       #6aad3c;   /* Primary CTA green — bright grass green */
+      --green-hover: #5a9830;   /* Darker on hover */
       --green-light: #e9f7dc;   /* Very light green tint */
       --black:       #111111;
       --dark:        #1a1a1a;
@@ -191,61 +191,248 @@
     }
     .search-btn:hover { background: var(--black); }
 
+    /* ══ HERO ANIMATIONS ══ */
+    @keyframes hFadeUp   { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes hFadeIn   { from{opacity:0} to{opacity:1} }
+    @keyframes hPulse    { 0%,100%{box-shadow:0 0 0 0 rgba(107,191,53,.55)} 50%{box-shadow:0 0 0 12px rgba(107,191,53,0)} }
+    @keyframes carFloat  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes scrollBob { 0%,100%{transform:translateX(-50%) translateY(0);opacity:.5} 50%{transform:translateX(-50%) translateY(8px);opacity:1} }
+    @keyframes shimmer   { 0%{background-position:200% center} 100%{background-position:-200% center} }
+
     /* ══ HERO ══ */
     .hero {
-      position: relative; min-height: 88vh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
       overflow: hidden;
     }
-    /* Hero background — real Orca Realty property photo */
+
+    /* Parallax-feel background */
     .hero-bg {
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 0;
       background-image:
-        linear-gradient(to bottom, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.72) 100%),
-        url('https://orcarealty.ca/wp-content/uploads/2013/10/westside-vancouver-rental-company.jpg');
+        url('https://orcarealty.ca/wp-content/uploads/2024/06/pexels-a-darmel-7641899-1-1536x1024-2-1024x683.jpg');
       background-size: cover;
-      background-position: center center;
+      background-position: center 20%;
       background-repeat: no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+    /* Multi-layer gradient overlay: dark top-left + green-tinted bottom */
+    .hero-bg::before {
+      content:''; position:absolute; inset:0;
+      background:
+        linear-gradient(110deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 50%, rgba(0,0,0,.35) 100%);
+    }
+    .hero-bg::after {
+      content:''; position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(20,60,10,.65) 0%, transparent 55%);
     }
 
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; padding: 6rem 2rem 10rem; max-width: 900px; margin: 0 auto;
+    /* Inner layout: two-column on desktop */
+    .hero-inner {
+      position: relative; z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1240px; margin: 0 auto;
+      padding: 7rem 2.5rem 2rem;
+      gap: 3rem;
+      width: 100%;
     }
-    .hero-eyebrow {
-      font-family: var(--font-head); font-size: 0.8rem; font-weight: 600;
-      letter-spacing: 0.28em; text-transform: uppercase;
-      color: rgba(255,255,255,0.85); margin-bottom: 1rem; display: block;
+
+    /* ── LEFT COLUMN ── */
+    .hero-left { display: flex; flex-direction: column; align-items: flex-start; }
+
+    /* Top badge row */
+    .hero-badge-row {
+      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.6rem;
+      animation: hFadeIn .6s ease .1s both;
     }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: rgba(107,191,53,.18); border: 1px solid rgba(107,191,53,.4);
+      color: #b5e87a; font-family: var(--font-head); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; padding: .3rem .9rem;
+    }
+    .hero-badge-dot { width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 7px rgba(107,191,53,.9); flex-shrink:0; }
+    .hero-badge-phone {
+      display: inline-flex; align-items: center; gap: .4rem;
+      color: rgba(255,255,255,.75); font-family: var(--font-head); font-size: .72rem; font-weight: 600;
+      letter-spacing: .05em;
+    }
+    .hero-badge-phone svg { width:13px; height:13px; stroke:var(--green); fill:none; stroke-width:2.5; flex-shrink:0; }
+
+    /* Headline */
     .hero-h1 {
-      font-family: var(--font-head); font-size: clamp(3.5rem, 8vw, 6.5rem);
-      font-weight: 900; color: var(--white); letter-spacing: 0.02em;
-      text-transform: uppercase; margin-bottom: 1.25rem; line-height: 1;
+      font-family: var(--font-head); font-weight: 900; color: var(--white);
+      font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+      line-height: 1.06; letter-spacing: -.01em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: hFadeUp .75s ease .2s both;
     }
-    .hero-sub {
-      font-size: 1.1rem; color: rgba(255,255,255,0.88); font-weight: 400;
-      margin-bottom: 2.5rem; line-height: 1.6;
+    .hero-h1 .line-green {
+      display: block; color: var(--green);
+      text-shadow: 0 0 50px rgba(107,191,53,.4);
+      background: linear-gradient(90deg, #6aad3c, #8dd455, #6aad3c);
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear 1.5s infinite;
     }
 
-    /* 3 hero CTA buttons (like actual site) */
-    .hero-btns {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 900px; margin: 0 auto;
+    /* Description */
+    .hero-desc {
+      font-size: clamp(.9rem, 1.3vw, 1rem); color: rgba(255,255,255,.78);
+      line-height: 1.82; margin-bottom: 2.2rem; max-width: 480px;
+      animation: hFadeUp .75s ease .32s both;
     }
-    .hero-btn {
+
+    /* CTA group */
+    .hero-cta-group {
+      display: flex; flex-direction: column; gap: .85rem; width: 100%; max-width: 400px;
+      animation: hFadeUp .75s ease .44s both;
+    }
+    .hero-cta-main {
+      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
       background: var(--green); color: var(--white);
-      font-family: var(--font-head); font-size: 0.82rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 1.2rem 1rem; border: none; cursor: pointer;
-      transition: var(--t); text-align: center; line-height: 1.4;
-      border-right: 1px solid rgba(0,0,0,0.15);
+      font-family: var(--font-head); font-size: .82rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 1.1rem 2rem; border: none; cursor: pointer; transition: var(--t);
+      text-decoration: none;
+      animation: hPulse 3s ease 1.8s infinite;
     }
-    .hero-btn:last-child { border-right: none; }
-    .hero-btn:hover { background: var(--green-hover); }
-    .hero-btn.active-btn { background: var(--green-hover); }
+    .hero-cta-main:hover { background:var(--green-hover); transform:translateY(-2px); box-shadow:0 10px 32px rgba(107,191,53,.45); }
+    .hero-cta-main svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2.5; flex-shrink:0; }
+
+    .hero-cta-sub-row { display: flex; gap: .75rem; }
+    .hero-cta-ghost {
+      flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .45rem;
+      background: transparent; color: rgba(255,255,255,.85);
+      font-family: var(--font-head); font-size: .75rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .85rem 1.2rem; border: 1.5px solid rgba(255,255,255,.38); cursor: pointer; transition: var(--t);
+      text-decoration: none;
+    }
+    .hero-cta-ghost:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.7); }
+    .hero-cta-ghost svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2.5; flex-shrink:0; }
+
+    /* Trust proof row */
+    .hero-trust-row {
+      display: flex; align-items: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap;
+      animation: hFadeIn .8s ease .6s both;
+    }
+    .hero-trust-item {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .72rem; color: rgba(255,255,255,.6); font-family: var(--font-head);
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+    .hero-trust-item svg { width:14px; height:14px; stroke:var(--green); fill:none; stroke-width:2.5; flex-shrink:0; }
+
+    /* ── RIGHT COLUMN ── */
+    .hero-right {
+      position: relative; display: flex; align-items: flex-end; justify-content: center;
+      min-height: 360px;
+    }
+
+    /* Orca car */
+    .hero-car {
+      position: relative; z-index: 2;
+      width: clamp(240px, 90%, 460px);
+      pointer-events: none;
+      filter: drop-shadow(0 16px 48px rgba(0,0,0,.65));
+      animation: carFloat 5.5s ease-in-out infinite;
+    }
+
+    /* Decorative green circle glow behind car */
+    .hero-car-glow {
+      position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
+      width: 320px; height: 120px; border-radius: 50%;
+      background: rgba(107,191,53,.22);
+      filter: blur(32px);
+      z-index: 1;
+    }
+
+    /* ── BOTTOM: Stats bar + 3-tab buttons ── */
+    .hero-bottom {
+      position: relative; z-index: 4; width: 100%;
+    }
+
+    /* Stats glass strip */
+    .hero-stats {
+      display: flex; justify-content: center; width: 100%;
+      background: rgba(8,8,8,.72); backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .hero-stat {
+      flex: 1; min-width: 120px; padding: 1.1rem 1rem; text-align: center;
+      border-right: 1px solid rgba(255,255,255,.07);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num {
+      font-family: var(--font-head); font-size: 1.65rem; font-weight: 900;
+      color: var(--green); line-height: 1; display: block;
+    }
+    .hero-stat-label {
+      font-size: .64rem; color: rgba(255,255,255,.5); text-transform: uppercase;
+      letter-spacing: .1em; margin-top: .25rem; display: block;
+    }
+
+    /* 3-tab CTA bar */
+    .hero-tab-bar {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .hero-tab {
+      background: var(--black); color: rgba(255,255,255,.7);
+      font-family: var(--font-head); font-size: .78rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 1.1rem 1rem; border: none; border-right: 1px solid rgba(255,255,255,.06);
+      cursor: pointer; transition: var(--t); text-align: center;
+      text-decoration: none; display: flex; align-items: center; justify-content: center; gap: .5rem;
+      border-bottom: 3px solid transparent;
+    }
+    .hero-tab:last-child { border-right: none; }
+    .hero-tab:hover { color: var(--white); border-bottom-color: var(--green); background: rgba(255,255,255,.04); }
+    .hero-tab.active { color: var(--white); border-bottom-color: var(--green); }
+    .hero-tab svg { width:14px; height:14px; stroke:var(--green); fill:none; stroke-width:2.5; flex-shrink:0; opacity:.85; }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute; bottom: 5.5rem; left: 50%; z-index: 5;
+      display: flex; flex-direction: column; align-items: center; gap: .3rem;
+      color: rgba(255,255,255,.38); font-size: .58rem; letter-spacing: .15em;
+      text-transform: uppercase; font-family: var(--font-head);
+      animation: scrollBob 2.4s ease infinite; cursor: pointer;
+    }
+    .hero-scroll svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; }
+
+    /* Hide old elements */
+    .hero-content, .hero-btns, .hero-btn, .hero-cta-row,
+    .hero-cta-primary, .hero-cta-secondary { display: none !important; }
 
     /* Wave divider */
     .hero-wave { position: absolute; bottom: 0; left: 0; right: 0; z-index: 3; line-height: 0; }
     .hero-wave svg { width: 100%; height: 70px; }
+
+    @media(max-width:900px){
+      .hero-inner { grid-template-columns: 1fr; padding-top: 5rem; padding-bottom: 1rem; gap: 1rem; }
+      .hero-left { align-items: center; text-align: center; }
+      .hero-h1 { font-size: clamp(2.2rem,7vw,3.2rem); }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-cta-group { align-items: center; }
+      .hero-trust-row { justify-content: center; }
+      .hero-right { min-height: 220px; }
+      .hero-car { width: clamp(200px,70%,320px); }
+    }
+    @media(max-width:600px){
+      .hero-tab { font-size:.68rem; padding:1rem .5rem; }
+      .hero-tab svg { display:none; }
+      .hero-cta-sub-row { flex-direction: column; }
+      .hero-stat-num { font-size:1.35rem; }
+    }
 
     /* ══ TRUST STRIP ══ */
     .trust-strip {
@@ -258,10 +445,11 @@
 
     /* ══ INTRO BAND ══ */
     .intro-band {
-      background: var(--green); padding: 2.5rem 0; text-align: center;
+      background: var(--dark); padding: 2.5rem 0; text-align: center;
+      border-top: 3px solid var(--green);
     }
     .intro-band h2 { font-family: var(--font-head); font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 800; color: var(--white); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .intro-band p  { font-size: 0.9rem; color: rgba(255,255,255,0.9); max-width: 640px; margin: 0 auto; }
+    .intro-band p  { font-size: 0.9rem; color: rgba(255,255,255,0.6); max-width: 640px; margin: 0 auto; }
 
     /* ══ WHY CHOOSE ══ */
     .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
@@ -589,32 +777,129 @@
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <!-- Orca car overlay — matches actual site -->
-  <img src="https://orcarealty.ca/wp-content/uploads/2024/02/Orca-Car.png"
-       alt="Orca Realty — Buy Sell Rent"
-       style="position:absolute;z-index:2;bottom:18%;left:50%;transform:translateX(-50%);width:clamp(220px,28%,380px);pointer-events:none;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));"/>
 
-  <div class="hero-content">
-    <span class="hero-eyebrow">Welcome To Orca Realty Inc. — Buy · Sell · Rent</span>
-    <h1 class="hero-h1">Vancouver Property Management for Landlords</h1>
-    <p class="hero-sub">Your property is in good hands with the Orca Realty team!</p>
-    <p style="font-size:0.9rem;color:rgba(255,255,255,0.72);max-width:580px;margin:0.75rem auto 0;line-height:1.75;">Orca Realty simplifies property management in Vancouver, providing an easy process for property owners.</p>
-  </div>
+  <!-- Two-column inner layout -->
+  <div class="hero-inner">
 
-  <!-- Landlord CTAs -->
-  <div style="position:relative;z-index:4;width:100%;max-width:900px;margin:0 auto;padding:0 2rem 5rem;">
-    <div class="hero-btns" style="grid-template-columns:repeat(3,1fr);max-width:900px;">
-      <button class="hero-btn active-btn">RENT MY HOME</button>
-      <button class="hero-btn">SELL MY HOME</button>
-      <button class="hero-btn">GET FREE EVALUATION</button>
+    <!-- LEFT: Text content -->
+    <div class="hero-left">
+
+      <!-- Badge + phone row -->
+      <div class="hero-badge-row">
+        <span class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Welcome To Orca Realty Inc.
+        </span>
+        <span class="hero-badge-phone">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.22 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          778-885-8330
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="hero-h1">
+        Your Trusted<br/>
+        <span class="line-green">Property Management</span>
+        Experts
+      </h1>
+
+      <!-- Description -->
+      <p class="hero-desc">Orca Realty simplifies property management across Vancouver and the Lower Mainland — maximising your returns, reducing stress, and delivering genuine passive income for over a decade.</p>
+
+      <!-- CTAs -->
+      <div class="hero-cta-group">
+        <a href="#contact" class="hero-cta-main">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Get Your Free Rental Evaluation
+        </a>
+        <div class="hero-cta-sub-row">
+          <a href="#why" class="hero-cta-ghost">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Why Choose Us
+          </a>
+          <a href="#process" class="hero-cta-ghost">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Our Process
+          </a>
+        </div>
+      </div>
+
+      <!-- Trust proof -->
+      <div class="hero-trust-row">
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          10+ Years Experience
+        </span>
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          No Fee During Vacancy
+        </span>
+        <span class="hero-trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          100% Tax Deductible
+        </span>
+      </div>
+
+    </div><!-- /hero-left -->
+
+    <!-- RIGHT: Orca car -->
+    <div class="hero-right">
+      <div class="hero-car-glow"></div>
+      <img class="hero-car"
+           src="https://orcarealty.ca/wp-content/uploads/2024/02/Orca-Car.png"
+           alt="Orca Realty branded vehicle — Vancouver property management"/>
+    </div>
+
+  </div><!-- /hero-inner -->
+
+  <!-- BOTTOM: Stats + 3-tab bar -->
+  <div class="hero-bottom">
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">10+</span>
+        <span class="hero-stat-label">Years Experience</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">1,000+</span>
+        <span class="hero-stat-label">Homes Managed</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">7%</span>
+        <span class="hero-stat-label">Mgmt Fee + GST</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">100%</span>
+        <span class="hero-stat-label">Tax Deductible</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">24/7</span>
+        <span class="hero-stat-label">Emergency Support</span>
+      </div>
+    </div>
+
+    <!-- Signature 3-tab bar (matching orcarealty.ca) -->
+    <div class="hero-tab-bar">
+      <a href="#contact" class="hero-tab active">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Rent My Home
+      </a>
+      <a href="#contact" class="hero-tab">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        Sell My Property
+      </a>
+      <a href="#contact" class="hero-tab">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Free Rental Evaluation
+      </a>
     </div>
   </div>
 
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,35 C360,70 720,0 1080,35 C1260,52 1380,18 1440,35 L1440,70 L0,70Z" fill="#ffffff"/>
-    </svg>
+  <!-- Scroll cue -->
+  <div class="hero-scroll" onclick="document.getElementById('why').scrollIntoView({behavior:'smooth'})">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    Scroll
   </div>
+
 </section>
 
 <!-- ══ TRUST STRIP ══ -->
