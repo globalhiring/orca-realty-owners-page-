@@ -474,14 +474,14 @@
     .sec-head.light .tag { background: rgba(255,255,255,0.15); }
 
     /* ══ SETTING THE STANDARD ══ */
-    .std-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .std-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .std-left h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 800; color: var(--dark); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
     .std-left .tagline { font-size: 1rem; font-style: italic; color: var(--green); font-family: var(--font-body); margin-bottom: 1.2rem; font-weight: 600; }
     .std-left p { font-size: 0.87rem; color: var(--mid); line-height: 1.75; margin-bottom: 2rem; }
-    .feat-list { display: grid; gap: 0.75rem; }
+    .feat-list { display: grid; gap: 0.5rem; }
     .feat-row {
       display: flex; gap: 0.9rem; align-items: flex-start;
-      padding: 1rem 1.2rem; background: var(--bg-light);
+      padding: 0.75rem 1rem; background: var(--bg-light);
       border-left: 3px solid var(--green); transition: var(--t);
     }
     .feat-row:hover { background: var(--green-light); }
@@ -489,7 +489,7 @@
     .feat-row h4 { font-size: 0.87rem; font-weight: 700; color: var(--dark); margin-bottom: 0.15rem; }
     .feat-row p  { font-size: 0.78rem; color: var(--mid); line-height: 1.5; }
 
-    .img-box { background: var(--bg-section); aspect-ratio: 3/4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: var(--light-gray); font-size: 0.78rem; text-align: center; padding: 2rem; border: 1px solid var(--border); position: relative; }
+    .img-box { background: var(--bg-section); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: var(--light-gray); font-size: 0.78rem; text-align: center; padding: 2rem; border: 1px solid var(--border); position: relative; }
     .img-box svg { width: 48px; height: 48px; stroke: var(--border); fill: none; stroke-width: 1; }
     .img-badge {
       position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem;
@@ -577,8 +577,8 @@
     .testi-loc  { font-size: 0.68rem; color: rgba(255,255,255,0.4); }
 
     /* ══ CONTACT ══ */
-    .ctab-row { display: flex; gap: 0; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem; background: var(--bg-section); border: 1px solid var(--border); max-width: 720px; margin: 0 auto 2.5rem; }
-    .ctab { padding: 0.75rem 1.25rem; font-family: var(--font-head); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; background: transparent; border: none; border-right: 1px solid var(--border); color: var(--mid); transition: var(--t); }
+    .ctab-row { display: flex; gap: 0; flex-wrap: wrap; margin-bottom: 2.5rem; background: var(--bg-section); border: 1px solid var(--border); max-width: 640px; margin: 0 auto 2.5rem; }
+    .ctab { flex: 1; padding: 0.75rem 1rem; font-family: var(--font-head); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; background: transparent; border: none; border-right: 1px solid var(--border); color: var(--mid); transition: var(--t); text-align: center; }
     .ctab:last-child { border-right: none; }
     .ctab:hover, .ctab.active { background: var(--green); color: var(--white); }
     .cpanel { display: none; }
@@ -610,7 +610,7 @@
 
     /* ══ FOOTER ══ */
     .site-footer { background: var(--black); color: rgba(255,255,255,0.55); padding: 4rem 0 0; }
-    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3.5rem; }
+    .foot-grid { display: grid; grid-template-columns: 1.5fr 1.2fr 1fr 1fr 1.4fr; gap: 2.5rem; margin-bottom: 3.5rem; }
     .ft-logo-box { background: var(--white); padding: 0.5rem; display: inline-flex; margin-bottom: 1rem; }
     .ft-logo-box .logo-box { width: 56px; height: 56px; }
     .ft-tag { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 240px; margin-bottom: 1.5rem; }
@@ -784,17 +784,6 @@
     <!-- LEFT: Text content -->
     <div class="hero-left">
 
-      <!-- Badge + phone row -->
-      <div class="hero-badge-row">
-        <span class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          Welcome To Orca Realty Inc.
-        </span>
-        <span class="hero-badge-phone">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.22 2 2 0 012.08 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          778-885-8330
-        </span>
-      </div>
 
       <!-- H1 -->
       <h1 class="hero-h1">
@@ -1059,7 +1048,7 @@
         <div style="display:inline-block;background:var(--green);color:white;font-family:var(--font-head);font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:0.28rem 0.8rem;margin-bottom:1rem;">Cost Transparency</div>
         <h2>Understanding the True Cost of Self-Management</h2>
         <div class="quote-bar">
-          <strong>Insights from Michael Welsh, Co-owner of Orca Realty:</strong><br/>
+          <strong>Insights from Petr Vokoun, Co-owner of Orca Realty:</strong><br/>
           "In Canada's high-tax environment, property management fees are 100% tax deductible — making professional management more cost-effective than most landlords realise."
         </div>
         <p>Many owners underestimate the real cost of self-managing — the time, legal exposure, and missed rental income during longer vacancies. Orca Realty's management fees are not just a smart investment — they're also 100% tax deductible, making professional management more cost-effective than most landlords realise.</p>
@@ -1085,6 +1074,51 @@
           <a href="#contact" class="green-btn" style="width:100%;">Get Free Rental Evaluation →</a>
         </div>
       </div><!-- close tax-box wrapper -->
+    </div>
+  </div>
+</section>
+
+<!-- ══ MANAGEMENT TEAM ══ -->
+<section class="section" id="team" style="background:var(--bg-light);">
+  <div class="container">
+    <div class="sec-head">
+      <div class="tag">Our Leadership</div>
+      <h2>Team of Professionals</h2>
+      <p>Meet the management team behind Orca Realty — experienced, licensed, and dedicated to protecting your investment.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:860px;margin:0 auto;">
+
+      <!-- Petr Vokoun -->
+      <div class="reveal" style="position:relative;overflow:hidden;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);">
+        <img src="https://orcarealty.ca/wp-content/uploads/2020/11/orca-team-petr-vokoun-400x400-1.png"
+             alt="Petr Vokoun — Owner, Managing Broker"
+             style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;
+                    background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);
+                    padding:1.5rem 1.25rem;">
+          <div style="font-family:var(--font-head);font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:0.3rem;">Petr Vokoun</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);line-height:1.5;">Owner, Managing Broker,<br/>Realtor® &amp; Property Manager</div>
+          <div style="width:32px;height:3px;background:var(--green);margin-top:0.6rem;"></div>
+        </div>
+      </div>
+
+      <!-- Benson Wang -->
+      <div class="reveal d2" style="position:relative;overflow:hidden;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.12);">
+        <img src="https://orcarealty.ca/wp-content/uploads/2025/11/535962-e1764190159748.png"
+             alt="Benson Wang — Property Manager, Managing Broker"
+             style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;
+                    background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);
+                    padding:1.5rem 1.25rem;">
+          <div style="font-family:var(--font-head);font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:0.3rem;">Benson Wang</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.75);line-height:1.5;">Property Manager, Managing Broker<br/>&amp; Realtor®</div>
+          <div style="width:32px;height:3px;background:var(--green);margin-top:0.6rem;"></div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="https://orcarealty.ca/our-team/" target="_blank" rel="noopener" class="outline-dark">Meet the Full Team</a>
     </div>
   </div>
 </section>
@@ -1221,48 +1255,48 @@
         <img src="https://orcarealty.ca/wp-content/uploads/2024/10/01-copy-1.jpg" alt="Property" style="width:100%;height:200px;object-fit:cover;display:block;"/>
         <div style="padding:1rem 1.25rem;">
           <div style="font-family:var(--font-head);font-size:0.7rem;font-weight:700;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">For Rent</div>
-          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">Vancouver</div>
-          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">Lower Mainland, BC</div>
+          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">5134 Pitcairn Place, West Vancouver</div>
+          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">West Vancouver, BC V7W 1L8 · $14,000/month</div>
         </div>
       </div>
       <div style="border-radius:4px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.1);background:var(--white);transition:0.25s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.16)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.1)'">
         <img src="https://orcarealty.ca/wp-content/uploads/2024/06/01-4-1-1170x785.jpg" alt="Property" style="width:100%;height:200px;object-fit:cover;display:block;"/>
         <div style="padding:1rem 1.25rem;">
           <div style="font-family:var(--font-head);font-size:0.7rem;font-weight:700;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">For Rent</div>
-          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">Burnaby</div>
-          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">Lower Mainland, BC</div>
+          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">402-5504 Brydon Crescent, Langley</div>
+          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">Langley, BC · $1,799/month</div>
         </div>
       </div>
       <div style="border-radius:4px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.1);background:var(--white);transition:0.25s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.16)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.1)'">
         <img src="https://orcarealty.ca/wp-content/uploads/2024/06/01-53-1170x785.jpg" alt="Property" style="width:100%;height:200px;object-fit:cover;display:block;"/>
         <div style="padding:1rem 1.25rem;">
           <div style="font-family:var(--font-head);font-size:0.7rem;font-weight:700;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">For Rent</div>
-          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">West Vancouver</div>
-          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">North Shore, BC</div>
+          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">1078 Nicola Street, Vancouver</div>
+          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">Vancouver, BC · $4,550/month</div>
         </div>
       </div>
       <div style="border-radius:4px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.1);background:var(--white);transition:0.25s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.16)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.1)'">
         <img src="https://orcarealty.ca/wp-content/uploads/2026/05/01-8.jpg" alt="Property" style="width:100%;height:200px;object-fit:cover;display:block;"/>
         <div style="padding:1rem 1.25rem;">
           <div style="font-family:var(--font-head);font-size:0.7rem;font-weight:700;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">For Rent</div>
-          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">Richmond</div>
-          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">Lower Mainland, BC</div>
+          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">2689 Kingsway Ave, Port Coquitlam</div>
+          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">Port Coquitlam, BC · $2,450/month</div>
         </div>
       </div>
       <div style="border-radius:4px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.1);background:var(--white);transition:0.25s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.16)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.1)'">
         <img src="https://orcarealty.ca/wp-content/uploads/2017/02/Kitchen-1170x785.jpg" alt="Property" style="width:100%;height:200px;object-fit:cover;display:block;"/>
         <div style="padding:1rem 1.25rem;">
           <div style="font-family:var(--font-head);font-size:0.7rem;font-weight:700;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">For Rent</div>
-          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">North Vancouver</div>
-          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">North Shore, BC</div>
+          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">301-1320 Marine Dr, North Vancouver</div>
+          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">North Vancouver, BC · $3,200/month</div>
         </div>
       </div>
       <div style="border-radius:4px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.1);background:var(--white);transition:0.25s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.16)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.1)'">
         <img src="https://orcarealty.ca/wp-content/uploads/2024/07/01-40-1170x785.jpg" alt="Property" style="width:100%;height:200px;object-fit:cover;display:block;"/>
         <div style="padding:1rem 1.25rem;">
           <div style="font-family:var(--font-head);font-size:0.7rem;font-weight:700;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">For Rent</div>
-          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">Surrey</div>
-          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">Fraser Valley, BC</div>
+          <div style="font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--dark);">15288 105 Ave, Surrey</div>
+          <div style="font-size:0.78rem;color:var(--mid);margin-top:0.2rem;">Surrey, BC · $2,850/month</div>
         </div>
       </div>
     </div>
@@ -1272,27 +1306,6 @@
   </div>
 </section>
 
-<!-- ══ LOCATIONS ══ -->
-<section class="section section-gray" id="locations">
-  <div class="container">
-    <div class="sec-head">
-      <div class="tag">Areas We Serve</div>
-      <h2>Discover Properties We Manage</h2>
-      <p>Expert property management across BC's Lower Mainland, Fraser Valley, and beyond.</p>
-    </div>
-    <div class="loc-grid">
-      <div class="loc-card reveal"><div><div class="loc-name">Vancouver</div><div class="loc-sub">Property Management</div></div><div class="loc-arr">→</div></div>
-      <div class="loc-card reveal d1"><div><div class="loc-name">West Vancouver</div><div class="loc-sub">Property Management</div></div><div class="loc-arr">→</div></div>
-      <div class="loc-card reveal d2"><div><div class="loc-name">North Vancouver</div><div class="loc-sub">Property Management</div></div><div class="loc-arr">→</div></div>
-      <div class="loc-card reveal d3"><div><div class="loc-name">Burnaby</div><div class="loc-sub">Property Management</div></div><div class="loc-arr">→</div></div>
-      <div class="loc-card reveal d3"><div><div class="loc-name">Richmond</div><div class="loc-sub">Property Management</div></div><div class="loc-arr">→</div></div>
-      <div class="loc-card reveal d4"><div><div class="loc-name">Lower Mainland</div><div class="loc-sub">Coquitlam · Port Moody · Pitt Meadows</div></div><div class="loc-arr">→</div></div>
-      <div class="loc-card reveal"><div><div class="loc-name">Surrey</div><div class="loc-sub">Property Management</div></div><div class="loc-arr">→</div></div>
-      <div class="loc-card reveal d1"><div><div class="loc-name">Fraser Valley</div><div class="loc-sub">Langley · Maple Ridge</div></div><div class="loc-arr">→</div></div>
-      <div class="loc-card reveal d2"><div><div class="loc-name">Squamish &amp; Kelowna</div><div class="loc-sub">Property Management</div></div><div class="loc-arr">→</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ TESTIMONIALS ══ -->
 <section class="section section-dark">
@@ -1397,18 +1410,11 @@
     <p>Join hundreds of satisfied property owners across the Lower Mainland — your property is in good hands.</p>
     <div class="cta-row">
       <a href="#contact" class="dark-btn">Get Your Free Rental Evaluation</a>
-      <a href="tel:+17788858330" class="outline-btn">Call 778-885-8330</a>
+      <a href="tel:+16049216722" class="outline-btn">Call 604-921-6722</a>
     </div>
   </div>
 </div>
 
-<!-- ══ CHARITY ══ -->
-<div class="charity">
-  <div class="charity-in">
-    <p>Join Orca Realty in supporting <strong>Backpack Buddies</strong> to fight childhood hunger in BC. Donate <strong>$25</strong> to provide meals for a child in need.</p>
-    <a href="#" class="green-btn">Donate Now</a>
-  </div>
-</div>
 
 <!-- ══ FOOTER ══ -->
 <footer class="site-footer">
@@ -1417,7 +1423,7 @@
       <div>
         <img src="https://orcarealty.ca/wp-content/uploads/2020/10/orca-realty-logo.png"
              alt="Orca Realty Inc."
-             style="height:70px;width:auto;display:block;margin-bottom:1rem;filter:brightness(0) invert(1);"/>
+             style="height:70px;width:auto;display:block;margin-bottom:1rem;"/>
         <p class="ft-tag">Your property is in good hands with the Orca Realty team. Serving the Lower Mainland with integrity, innovation, and expertise.</p>
         <div class="socials">
           <a class="soc" href="https://www.facebook.com/orcarealtyvancouver" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -1438,24 +1444,93 @@
         </div>
       </div>
       <div class="ft-col">
+        <h4>Discover Our Properties</h4>
+        <div class="ft-links">
+          <a href="https://orcarealty.ca/vancouver-rentals/">Vancouver</a>
+          <a href="https://orcarealty.ca/west-vancouver-rentals/">West Vancouver</a>
+          <a href="https://orcarealty.ca/north-vancouver-rentals/">North Vancouver</a>
+          <a href="https://orcarealty.ca/lower-mainland-rentals/">Lower Mainland</a>
+          <a href="https://orcarealty.ca/fraser-valley-rentals/">Fraser Valley</a>
+          <a href="https://orcarealty.ca/squamish-rentals/">Squamish Property Management</a>
+        </div>
+      </div>
+      <div class="ft-col">
         <h4>Company</h4>
-        <div class="ft-links"><a href="#">Home</a><a href="#">About Us</a><a href="#">Our Team</a><a href="#">Blog</a><a href="#">Contact</a></div>
+        <div class="ft-links">
+          <a href="https://orcarealty.ca/">Home</a>
+          <a href="https://orcarealty.ca/about-us/">About</a>
+          <a href="https://orcarealty.ca/our-team/">Our Team</a>
+          <a href="https://orcarealty.ca/contact/">Contact</a>
+          <a href="https://orcarealty.ca/blog/">Blog</a>
+        </div>
       </div>
       <div class="ft-col">
-        <h4>Information</h4>
-        <div class="ft-links"><a href="#">Services</a><a href="#">Property Management</a><a href="#">FAQ</a><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+        <h4>Info</h4>
+        <div class="ft-links">
+          <a href="https://orcarealty.ca/services/">Services</a>
+          <a href="https://orcarealty.ca/landlords/">Property Management</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://orcarealty.ca/privacy-policy/">Privacy Policy</a>
+          <a href="https://orcarealty.ca/terms-and-conditions/">Terms and Conditions</a>
+        </div>
       </div>
       <div class="ft-col">
-        <h4>Our Offices</h4>
+        <h4>Contact Us</h4>
         <div class="offices">
-          <div><div class="off-lbl">Burnaby Head Office</div><div class="off-addr">Unit 201 – 3997 Henning Dr<br/>Burnaby, BC V5C 6N5, Canada</div></div>
-          <div><div class="off-lbl">West Vancouver Office</div><div class="off-addr">Unit 213 – 2438 Marine Dr<br/>West Vancouver, BC V7V 1L2, Canada</div></div>
+          <div>
+            <div class="off-lbl">Burnaby Head Office (Drop Off Things)</div>
+            <div class="off-addr">Unit 201 – 3997 Henning Dr –<br/>Burnaby, BC, V5C 6N5 Canada</div>
+          </div>
+          <div>
+            <div class="off-lbl">West Vancouver Office</div>
+            <div class="off-addr">Unit 213 – 2438 Marine Dr.<br/>West Vancouver, BC, V7V 1L2 Canada</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="foot-base">
-      <p>© Orca Realty Inc. — All rights reserved. Petr Vokoun &amp; Benson Wang, Managing Brokers.</p>
-      <div class="legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Login</a></div>
+    <!-- Licensing & Partners bar -->
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding:2.5rem 0;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+      <div style="border:1px solid rgba(255,255,255,0.1);padding:1.5rem 1.75rem;">
+        <h4 style="font-family:var(--font-head);font-size:0.9rem;font-weight:700;color:var(--white);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid rgba(255,255,255,0.1);">Licensing &amp; Memberships</h4>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.75;">Orca Realty Inc. are licensed with the <strong style="color:rgba(255,255,255,0.75);">BC Financial Services Authority (BCFSA)</strong>, and a member of <strong style="color:rgba(255,255,255,0.75);">The British Columbia Real Estate Association (BCREA)</strong> and <strong style="color:rgba(255,255,255,0.75);">The Greater Vancouver REALTORS (GVR)</strong>.</p>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.1);padding:1.5rem 1.75rem;">
+        <h4 style="font-family:var(--font-head);font-size:0.9rem;font-weight:700;color:var(--white);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid rgba(255,255,255,0.1);">Partners</h4>
+        <div style="display:grid;gap:0.75rem;">
+          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);"><strong style="color:var(--white);">Bank</strong> – Bank of Montreal</p>
+          <p style="font-size:0.83rem;color:rgba(255,255,255,0.55);"><strong style="color:var(--white);">Financial Audit</strong> – MNP LLP</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social icons row -->
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding:1.5rem 0;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+      <a href="https://www.facebook.com/orcarealtyvancouver" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:rgba(255,255,255,0.45);transition:0.25s ease;text-decoration:none;" onmouseover="this.style.color='#6aad3c'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> Facebook
+      </a>
+      <a href="https://twitter.com/OrcaRealtyInc" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:rgba(255,255,255,0.45);transition:0.25s ease;text-decoration:none;" onmouseover="this.style.color='#6aad3c'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter
+      </a>
+      <a href="https://www.instagram.com/orcarealty" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:rgba(255,255,255,0.45);transition:0.25s ease;text-decoration:none;" onmouseover="this.style.color='#6aad3c'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram
+      </a>
+      <a href="https://www.linkedin.com/company/orca-realty-inc" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:rgba(255,255,255,0.45);transition:0.25s ease;text-decoration:none;" onmouseover="this.style.color='#6aad3c'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> Linkedin
+      </a>
+      <a href="https://www.youtube.com/@orcarealty" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:rgba(255,255,255,0.45);transition:0.25s ease;text-decoration:none;" onmouseover="this.style.color='#6aad3c'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/></svg> Youtube
+      </a>
+      <a href="https://www.pinterest.com/orcarealty" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:rgba(255,255,255,0.45);transition:0.25s ease;text-decoration:none;" onmouseover="this.style.color='#6aad3c'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg> Pinterest
+      </a>
+      <a href="https://www.yelp.com/biz/orca-realty" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:rgba(255,255,255,0.45);transition:0.25s ease;text-decoration:none;" onmouseover="this.style.color='#6aad3c'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.178-1.63l2.905-4.308a1.072 1.072 0 011.596-.206 9.024 9.024 0 012.364 3.812 1.073 1.073 0 01-.692 1.299zm-7.221 2.671l.805 4.935c.147.9-.974 1.48-1.57.797L8.957 16.59a1.072 1.072 0 01.215-1.598l4.007-2.609c.822-.535 1.892.224 1.76 1.182v.7zm-5.99-2.534L2.077 14.19c-.87.36-1.698-.574-1.306-1.426a9.024 9.024 0 012.965-3.459 1.073 1.073 0 011.594.38l2.32 4.596c.449.888-.315 1.93-1.285 1.45h-.42zm1.046-5.273L6.86 3.02c-.195-.905.88-1.566 1.534-.948a9.024 9.024 0 012.837 4.186 1.073 1.073 0 01-.764 1.34L6.04 8.828c-.96.27-1.78-.707-1.3-1.57h.255zm6.316-.06c-.962-.267-1.116-1.578-.255-2.057l4.57-2.564c.812-.456 1.702.35 1.367 1.211a9.024 9.024 0 01-2.868 3.926 1.073 1.073 0 01-1.593-.31l-1.221-2.206z"/></svg> Yelp
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding:1.25rem 0;text-align:center;">
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-bottom:0.4rem;">© Orca Realty Inc. 2026 - All rights reserved</p>
     </div>
   </div>
 </footer>
@@ -1497,3 +1572,4 @@
 </script>
 </body>
 </html>
+
